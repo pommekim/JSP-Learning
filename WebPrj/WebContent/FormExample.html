@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 예제</title>
+</head>
+<body>
+<form action="/FormExample.do" method="post">
+<!-- http 프로토콜의 기본 요청 방식이 get이기 때문에 post 방식을 쓰려면 꼭 form 태그를 열어주어야 함.
+action에는 데이터를 전송할 서버의 주소값, method에는 데이터 요청 방식을 적어주어야 함. (아무것도 적지 않으면 기본값인 get이 실행됨.) -->
+
+<!-- # 꼭 알아야 하는 것.
+1. 서버에 데이터를 전달할 수 있는 태그 input, type에 따라 여러 형식의 데이터를 입력할 수 있음.
+2. html페이지는 java소스가 아니기 때문에 개행을 하려면 <br>을 넣어주어야 함.
+3. name에는 전달될 데이터(파라미터)를 부를 연관된 이름을 지어주어야 함. 지어준 name은 서블릿에서 getParameter의 매개값이 됨. -->
+3333
+아이디 : <input type=text name=id value="아이디"><br>
+비밀번호 : <input type=password name=pw><br>
+생년월일 : <input type=date name=birth><br>
+취미 : <input type=checkbox name=hobby value=1>철권
+	<input type=checkbox name=hobby value=2>위닝
+	<input type=checkbox name=hobby value=3>오버워치<br>
+<!-- checkbox는 데이터를 중복 선택할 때 사용 가능. 데이터를 전혀 선택 안할수도 있고, 주어진 데이터를 모두 선택할 수도 있음.
+데이터의 name은 한가지로 통일하는 것이 서블릿에서 데이터 처리(배열)를 할 때 유용함. value값은 선택된 데이터의 인덱스 번호 정도로 생각하기. -->
+성별 : <input type=radio name=gender value=F>여
+	<input type=radio name=gender value=M>남<br>
+<!-- radio는 checkbox와 달리 무조건 단 하나의 데이터를 선택해야 할 때 사용. -->
+이메일 : <input type=email name=email><br>
+연락처 : <input type=tel name=tel 
+pattern="^[0][1][0-9](-|\s)\d{3,4}(-|\s)\d{4}$"><br>
+<!-- 연락처의 형식은 이메일과 다르게 매우 다양하기 때문에 정규표현식을 통해 내가 원하는 형식을 지정해주어야 함.
+정규표현식이란 모든 언어에서 공통으로 사용되는 표기법. -->
+학년 : <input type=number name=grade min=1 max=4 step=1><br>
+<!-- number는 숫자만을 선택할 수 있게 하는 방법. min과 max와 step이 꼭 들어가야 함. 단, step은 지정을 안해주면 기본값 1이 들어감. -->
+자기소개 : <textarea cols=20 rows=5 name=intro>자기소개를 써주세요.</textarea><br>
+<!-- input태그가 아니기 때문에 꼭 닫는 태그를 써주어야 함.
+cols에는 한줄에 몇글자를 적을 수 있는지를 설정, rows에는 몇줄을 적을 수 있는지를 설정. -->
+지역 : <select name=area>
+<option value=1>서울</option>
+<option value=2>경기도</option>
+<option value=3>경상도</option>
+<option value=4>전라도</option>
+</select><br>
+<!-- select태그 안에는 option태그를 넣어 사용자가 볼 수 있는 선택지를 적어주어야 함.
+checkbox에서와 마찬가지로 value값은 후에 서블릿에서 배열로 데이터를 처리할 때 사용될 것임. -->
+<input type=submit value=저장>&nbsp;&nbsp;&nbsp;<input type=reset value=취소>
+<!-- submit은 데이터를 전송, reset은 페이지 초기화, 간격을 벌려주고 싶을 땐 &nbsp;를 적어주면 됨. -->
+</form>
+</body>
+</html>
